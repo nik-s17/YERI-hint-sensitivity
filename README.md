@@ -30,6 +30,16 @@ Run `python3 scripts/build_database.py` using Python 3.8 or newer. Only the stan
 
 The original supplied files are preserved in [`sources/`](sources/).
 
+## Testing data and statistical analysis
+
+The supplied testing CSV is preserved unchanged at [`data/YERI Testing Data - Sheet1.csv`](data/YERI%20Testing%20Data%20-%20Sheet1.csv).
+
+Open [`notebooks/hint_correctness_analysis.ipynb`](notebooks/hint_correctness_analysis.ipynb) in Jupyter and run all cells. Install the packages with `%pip install numpy pandas scipy matplotlib statsmodels` in a notebook cell if needed. The same code is also available in [`notebooks/hint_correctness_analysis.py`](notebooks/hint_correctness_analysis.py), separated into notebook-style cells. Python 3.9 or newer is recommended. Run the notebook from the repository root or its `notebooks` directory; otherwise set `CSV_PATH` to your downloaded file.
+
+The notebook compares V1, V2, and V3 using question-paired binary outcomes. It includes accuracy plots with 95% Wilson intervals, improvement/decline counts, question-level heatmaps, an exact conditional omnibus test using Cochran's Q, and two-sided exact McNemar tests with Holm correction across three comparisons. Original T/F scores are the primary analysis; a separately labeled sensitivity analysis assumes nonblank correction entries replace the original scores. It validates question IDs and T/F labels, excludes blank-ID note rows, and checks the CSV answer key against the prompt database when available. Free-text CSV notes are data, not requests to execute additional experiments.
+
+Interpretation is limited to the recorded responses and scoring labels. Twenty selected questions with one response per condition provide limited power and do not measure model sampling variability. The notebook explains the independence and exchangeability assumptions and why nonsignificance does not establish equivalence.
+
 ## Use for prompting
 
 Clone this private repository while authenticated, or download `data/questions.json` from its GitHub file page. Each `prompt_v*` field is already a complete string containing the question, options, and response instructions. Send one such string as the user message for an independent model call; no option reconstruction is required.
