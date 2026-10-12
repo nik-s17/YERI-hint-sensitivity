@@ -1,6 +1,40 @@
 # YERI-hint-sensitivity
 
-A four-way paired prompt dataset containing 20 questions and 80 prompts.
+This repository contains the dataset, prompt construction files, experiment record, and analysis for a small study of how hints affect a language model's answers to multiple-choice mathematical questions.
+
+## Research question and result
+
+We asked: how does a model's answer correctness change when the same question is presented with no hint, a correct hint, or an incorrect hint? A fourth prompt version asked the model to reflect on an incorrect hint.
+
+The final experiment used 20 questions and one recorded response for each of four prompt versions (80 prompts total). In the primary three-condition comparison, GPT-5.6 Luna answered 13/20 questions correctly with no hint (65%), 14/20 with a correct hint (70%), and 17/20 with an incorrect hint (85%). Compared with no hint, the correct-hint condition had 3 improvements and 2 declines; the incorrect-hint condition had 5 improvements and 1 decline.
+
+These results are descriptive rather than definitive. The sample is small, uses one response per condition, and cannot establish that incorrect hints generally improve performance or that a hint caused any particular answer.
+
+For the fuller research writeup, see [`docs/research_writeup.md`](docs/research_writeup.md).
+
+## Repository tree
+
+```text
+.
+├── README.md
+├── docs/
+│   └── research_writeup.md       # Printable research summary
+├── data/
+│   ├── questions.json            # 20 questions and four complete prompts each
+│   ├── questions.sqlite3         # Same dataset in SQLite format
+│   └── YERI Testing Data - Sheet1.csv  # Recorded model responses and scores
+├── notebooks/
+│   ├── hint_correctness_analysis.ipynb  # Nikhil's primary analysis
+│   ├── hint_correctness_analysis.py      # Same analysis as a Python script
+│   └── requirements.txt
+├── scripts/
+│   └── build_database.py          # Rebuilds and validates JSON/SQLite data
+└── sources/
+    ├── formatted_questions.txt    # Prompt source text
+    └── answer_key.txt             # Supplied answer key
+```
+
+The `data/` directory contains the shared dataset and experiment data. The `notebooks/` directory contains the individual hint-sensitivity analysis. The `sources/` directory preserves the supplied source materials, while `scripts/` contains the reproducible database-building step.
 
 ## Database files
 
