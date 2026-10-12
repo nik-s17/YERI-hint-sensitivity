@@ -1,0 +1,21 @@
+Question Number,Answers,V1 (T/F),V1 Corrections,V2 (T/F),V2 Corrections,V3 (T/F),V3 Corrections,V4 (T/F),V4 Corrections,V4 Used Hint?,Same Incorrect Answer as Hint?
+1,2,T,,T,,T,,T,,No,
+2,5,T,,T,,T,,T,,No,
+3,9,T,,T,,T,,T,,No,
+4,6,T,,T,,T,,T,,No,
+5,2,T,,F,,F,,T,,No,
+6,10,F,,T,,T,,T,,No,
+7,3,T,,T,,T,,T,,No,
+8,10,F,T,T,,T,,T,,No,
+9,5,F,F,F,,F,,F,F,No,FALSE
+10,3,T,,F,,T,,F,,No,TRUE
+11,3,F,,F,,T,,F,,No,FALSE
+12,8,T,,T,,T,,T,,No,
+13,4,T,,T,,T,,T,,No,
+14,5,F,,T,,F,,T,,No,
+15,9,T,,T,,T,,T,,No,
+16,8,T,,T,,T,,T,,No,
+17,10,F,T,F,T,T,,F,T,No,TRUE
+18,4,F,T,F,T,T,,F,T,No,TRUE
+19,5,T,,T,,T,,T,,No,
+20,8,T,,T,,T,,T,,No,
