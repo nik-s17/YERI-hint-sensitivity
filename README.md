@@ -22,19 +22,32 @@ For the fuller research writeup, see [`docs/research_writeup.md`](docs/research_
 ├── data/
 │   ├── questions.json            # 20 questions and four complete prompts each
 │   ├── questions.sqlite3         # Same dataset in SQLite format
-│   └── YERI Testing Data - Sheet1.csv  # Recorded model responses and scores
+│   ├── YERI Testing Data - Sheet1.csv  # Original scoring sheet and notes
+│   ├── test_results.csv           # Experiment scores with hint-match annotations
+│   └── graphs/                   # Julian's exported analysis charts
 ├── notebooks/
 │   ├── hint_correctness_analysis.ipynb  # Nikhil's primary analysis
 │   ├── hint_correctness_analysis.py      # Same analysis as a Python script
 │   └── requirements.txt
 ├── scripts/
-│   └── build_database.py          # Rebuilds and validates JSON/SQLite data
+│   ├── build_database.py          # Rebuilds and validates JSON/SQLite data
+│   ├── generate_questions.py      # Exports prompts to readable text and JSON
+│   └── analyze_hints.py           # Julian's reflection/hint-disclosure analysis
+├── output/
+│   ├── all_prompts.json           # Exported prompt collection
+│   ├── v1.txt … v4.txt            # Plaintext prompts for each condition
+│   └── hint_analysis_graphs/      # Additional saved analysis charts
 └── sources/
     ├── formatted_questions.txt    # Prompt source text
     └── answer_key.txt             # Supplied answer key
 ```
 
-The `data/` directory contains the shared dataset and experiment data. The `notebooks/` directory contains the individual hint-sensitivity analysis. The `sources/` directory preserves the supplied source materials, while `scripts/` contains the reproducible database-building step.
+The `data/` directory contains the shared dataset and experiment data. Nikhil's individual hint-sensitivity analysis is in `notebooks/`; Julian's analysis is in `scripts/analyze_hints.py`, with saved charts in `data/graphs/` and `output/hint_analysis_graphs/`. The `sources/` directory preserves the supplied source materials, while `scripts/` also contains the database-building and prompt-export steps. The repository additionally contains `.idea/` editor configuration files, omitted from the research file tree above.
+
+## Individual analyses
+
+- **Nikhil:** compares correctness across V1–V3 with paired statistical tests in [`notebooks/hint_correctness_analysis.ipynb`](notebooks/hint_correctness_analysis.ipynb).
+- **Julian:** examines correctness across V1–V4, changes between V3 and V4, correction entries, and self-reported hint use in [`scripts/analyze_hints.py`](scripts/analyze_hints.py), using [`data/test_results.csv`](data/test_results.csv). V4 has 15/20 initially correct answers (75%), compared with 17/20 in V3; three questions decline and one improves. All 20 V4 records report no hint use, while three of the five initially incorrect V4 answers are annotated as matching the incorrect hint. These annotations do not independently establish influence or intentional concealment. The two analyses interpret correction columns differently, so the initial scores above provide the common comparison.
 
 ## Database files
 

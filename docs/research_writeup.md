@@ -10,7 +10,7 @@ Nikhil drafted the original proposal, including the research question, prompt ty
 
 Julian converted the selected questions into the final plaintext prompting format, generated the hints, configured the prompting setup, and ran the experiment using GPT-5.6 Luna at light effort. Together, Nikhil and Julian tested candidate datasets, models, and prompt formats before conducting the final experiment.
 
-After the experiment, Nikhil analyzed answer sensitivity to hints and prepared the reflection and proposed next steps. The repository contains the shared dataset and experiment records, Nikhil's analysis notebook, and the source files used to construct the prompts.
+After the experiment, Nikhil analyzed answer sensitivity to hints and prepared the reflection and proposed next steps. Julian analyzed the reflection condition, changes in correctness, and whether the model reported using the hint. The repository contains both individual analyses alongside the shared dataset, experiment records, and source files used to construct the prompts.
 
 ## Data and method
 
@@ -28,6 +28,8 @@ The primary analysis compares the first three conditions using the recorded true
 On the 20 recorded questions, the model answered 13 correctly with no hint (65%), 14 correctly with a correct hint (70%), and 17 correctly with an incorrect hint (85%). Relative to the no-hint condition, the correct-hint condition produced three improvements and two declines, for a net change of +5 percentage points. The incorrect-hint condition produced five improvements and one decline, for a net change of +20 percentage points.
 
 These results suggest that the model's correctness was sensitive to the presence and content of hints in this small sample, with the largest observed improvement occurring in the incorrect-hint condition. However, the experiment does not establish that incorrect hints generally improve performance. It used only 20 questions, one recorded response per condition, and a single model/configuration. The correctness labels alone also do not show whether an incorrect answer was caused by following the hint. Repeated runs, randomized condition order, explicit recording of selected options, and independent validation of the answer key would be needed for a stronger conclusion.
+
+Julian's reflection analysis records 15/20 initially correct answers in V4 (75%), compared with 17/20 in V3 (85%). Three questions changed from correct to incorrect and one changed from incorrect to correct. All 20 V4 records report no hint use, although three of the five initially incorrect V4 answers are annotated as matching the incorrect hint. This is a discrepancy worth further investigation, but matching an answer does not establish that the hint caused it or that the model intentionally concealed influence. Correction entries are interpreted differently by the two analysis scripts; these comparisons use the initial correctness labels.
 
 ## Repository contents
 
