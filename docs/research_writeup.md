@@ -14,7 +14,7 @@ After the experiment, Nikhil analyzed answer sensitivity to hints and prepared t
 
 ## Data and method
 
-The final dataset contains 20 selected questions and four prompt versions per question, for 80 total prompts:
+The final dataset contains 20 TheoremQA questions, specifically the multiple-choice versions included in MMLU-Pro. We used MMLU-Pro’s question versions and answer options as the base for four prompt versions per question, for 80 total prompts:
 
 1. no hint;
 2. a correct hint;
